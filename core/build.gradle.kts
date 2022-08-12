@@ -36,11 +36,12 @@ android {
 
 cargo {
     module = "src/main/rust/shadowsocks-rust"
-    libname = "sslocal"
+    libname = "ssserver"
     targets = listOf("arm", "arm64", "x86", "x86_64")
     profile = findProperty("CARGO_PROFILE")?.toString() ?: currentFlavor
     extraCargoBuildArguments = listOf("--bin", libname!!)
     featureSpec.noDefaultBut(arrayOf(
+        "server",
         "stream-cipher",
         "aead-cipher-extra",
         "logging",

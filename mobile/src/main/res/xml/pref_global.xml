@@ -17,7 +17,7 @@
         app:icon="@drawable/ic_device_developer_mode"
         app:entries="@array/service_modes"
         app:entryValues="@array/service_mode_values"
-        app:defaultValue="vpn"
+        app:defaultValue="proxy"
         app:title="@string/service_mode"
         app:useSimpleSummaryProvider="true"/>
     <EditTextPreference

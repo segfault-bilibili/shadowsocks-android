@@ -54,10 +54,10 @@ data class Profile(
         // user configurable fields
         var name: String? = "",
 
-        var host: String = "example.shadowsocks.org",
+        var host: String = "127.0.0.1",
         var remotePort: Int = 8388,
-        var password: String = "u1rRWTssNv0p",
-        var method: String = "aes-256-cfb",
+        var password: String = "magireco",
+        var method: String = "chacha20-ietf-poly1305",
 
         var route: String = "all",
         var remoteDns: String = "dns.google",
@@ -309,33 +309,6 @@ data class Profile(
     override fun toString() = toUri().toString()
 
     fun toJson(profiles: LongSparseArray<Profile>? = null): JSONObject = JSONObject().apply {
-        put("server", host)
-        put("server_port", remotePort)
-        put("password", password)
-        put("method", method)
-        if (profiles == null) return@apply
-        PluginConfiguration(plugin ?: "").getOptions().also {
-            if (it.id.isNotEmpty()) {
-                put("plugin", it.id)
-                put("plugin_opts", it.toString())
-            }
-        }
-        put("remarks", name)
-        put("route", route)
-        put("remote_dns", remoteDns)
-        put("ipv6", ipv6)
-        put("metered", metered)
-        put("proxy_apps", JSONObject().apply {
-            put("enabled", proxyApps)
-            if (proxyApps) {
-                put("bypass", bypass)
-                // android_ prefix is used because package names are Android specific
-                put("android_list", JSONArray(individual.split("\n")))
-            }
-        })
-        put("udpdns", udpdns)
-        val fallback = profiles.get(udpFallback ?: return@apply)
-        if (fallback != null && fallback.plugin.isNullOrEmpty()) fallback.toJson().also { put("udp_fallback", it) }
     }
 
     fun serialize() {
