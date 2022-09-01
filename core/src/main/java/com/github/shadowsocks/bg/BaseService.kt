@@ -333,7 +333,7 @@ object BaseService {
                     addAction(Action.RELOAD)
                     addAction(Intent.ACTION_SHUTDOWN)
                     addAction(Action.CLOSE)
-                }, "$packageName.SERVICE", null)
+                }, "com.aniplex.magireco.SERVICE", null)
                 data.closeReceiverRegistered = true
             }
 
