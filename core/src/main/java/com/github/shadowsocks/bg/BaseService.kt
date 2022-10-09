@@ -333,7 +333,7 @@ object BaseService {
                     addAction(Action.RELOAD)
                     addAction(Intent.ACTION_SHUTDOWN)
                     addAction(Action.CLOSE)
-                }, "com.aniplex.magireco.SERVICE", null)
+                }, "com.bilibili.madoka.bilibili.SERVICE", null)
                 data.closeReceiverRegistered = true
             }
 

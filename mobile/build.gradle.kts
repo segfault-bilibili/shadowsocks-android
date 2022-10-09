@@ -8,7 +8,7 @@ setupApp()
 
 android {
     namespace = "com.github.shadowsocks"
-    defaultConfig.applicationId = "com.aniplex.magireco"
+    defaultConfig.applicationId = "com.bilibili.madoka.bilibili"
 }
 
 dependencies {
